@@ -7,11 +7,13 @@
 
   <ItemGroup>
     <Compile Include="Types.fs" />
+    <Compile Include="Best.fs" />
     <Compile Include="RespCache.fs" />
     <Compile Include="Li.fs" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FlounderLib\FlounderLib.fsproj" />
     <ProjectReference Include="..\FsChessPgn\FsChessPgn.fsproj" />
   </ItemGroup>
 

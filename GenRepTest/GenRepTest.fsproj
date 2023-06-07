@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Best.fs" />
     <Compile Include="RespDict.fs" />
     <Compile Include="RespCache.fs" />
     <Compile Include="Li.fs" />

@@ -1,6 +1,5 @@
 namespace GenRepTest
 
-open System.IO
 open System.Collections.Generic
 open NUnit.Framework
 open FsUnit
