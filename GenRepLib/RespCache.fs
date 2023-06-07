@@ -1,13 +1,12 @@
-﻿namespace GenRep
+﻿namespace GenRepLib
 
 open System.IO
 
-module Cache =
-    type CacheDict = System.Collections.Generic.IDictionary<string,string list>
+module RespCache =
     let mutable WhiteCache = ""
     let mutable BlackCache = ""
     
-    let SaveWhite (wd:CacheDict) =
+    let SaveWhite (wd:RespCacheDict) =
         let l2str (l:string list) =
             l
             |>List.map (fun m -> "\"" + m + "\"")
@@ -18,7 +17,7 @@ module Cache =
         if WhiteCache = "" then failwith "White Cache file not defined"
         else File.WriteAllLines(WhiteCache,lines)
     
-    let SaveBlack (bd:CacheDict) =
+    let SaveBlack (bd:RespCacheDict) =
         let l2str (l:string list) =
             l
             |>List.map (fun m -> "\"" + m + "\"")

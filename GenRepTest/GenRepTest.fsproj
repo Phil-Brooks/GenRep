@@ -9,7 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Cache.fs" />
+    <Compile Include="RespDict.fs" />
+    <Compile Include="RespCache.fs" />
     <Compile Include="Li.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

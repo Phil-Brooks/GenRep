@@ -1,4 +1,4 @@
-﻿namespace GenRep
+﻿namespace GenRepLib
 
 open FsChessPgn.OpenExp
 

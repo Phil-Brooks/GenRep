@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Cache.fs" />
+    <Compile Include="Types.fs" />
+    <Compile Include="RespCache.fs" />
     <Compile Include="Li.fs" />
   </ItemGroup>
 

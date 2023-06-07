@@ -2,7 +2,7 @@ namespace GenRepTest
 
 open NUnit.Framework
 open FsUnit
-open GenRep
+open GenRepLib
 
 module Li =
 
