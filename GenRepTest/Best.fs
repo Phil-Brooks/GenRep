@@ -14,7 +14,7 @@ module Best =
     let GetHome5() =
         let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
         let ans = Best.Get 5 fen
-        ans.Best|>should equal "g4"
-        ans.Resp|>should equal "Na6"
-        ans.Eval|>should equal -35
+        ans.Best|>should equal "e4"
+        ans.Resp|>should equal "c5"
+        ans.Eval|>should equal 60
     

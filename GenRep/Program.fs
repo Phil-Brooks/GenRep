@@ -1,2 +1,7 @@
-﻿// For more information see https://aka.ms/fsharp-console-apps
-printfn "Hello from F#"
+﻿open GenRepLib
+
+[<EntryPoint>]
+let main argv =
+    let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+    let ans = Best.Get 5 fen
+    0 // return an integer exit code        

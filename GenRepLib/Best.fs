@@ -17,24 +17,22 @@ module Best =
             let rsan = FsChessPgn.MoveUtil.toPgn nbd rpmv
             san,rsan
         //setup
+        Brd <- Board.FromFen(fenstr)
         NNUEb.ResetRefreshTable()
         NNUEb.AccIndex<-0
         NNUEb.ResetAccumulator(White)
         NNUEb.ResetAccumulator(Black)
         Search.Reset()
-        Brd <- Board.FromFen(fenstr)
         RepHist.Reset()
         //get best
-        let mutable bm = OrdMove.Default
-        let mutable resp = OrdMove.Default
         let rec getbm cureval curdepth =
             if not (curdepth > depth) then
                 let eval = Search.AspirationSearch(curdepth, cureval)
-                bm <- PrincVars.Get(0)
-                resp <- PrincVars.Get(1)
                 getbm eval (curdepth + 1)
             else cureval
         let eval = getbm -100000000 1                    
+        let bm = PrincVars.Get(0)
+        let resp = PrincVars.Get(1)
         let sbm,sresp = Sans bm resp
         {Best=sbm;Resp=sresp;Eval=eval}
     
