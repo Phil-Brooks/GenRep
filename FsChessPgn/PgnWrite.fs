@@ -69,7 +69,7 @@ module PgnWrite =
         Move(mv,writer)
         writer.ToString()
 
-    let rec MoveTextEntry(entry:MoveTextEntry, writer:TextWriter) =
+    let rec MoveTextEntry(entry:MoveTextEntry, writer:TextWriter, indent:string) =
         match entry with
         |HalfMoveEntry(mn,ic,mv,amv) -> 
             if mn.IsSome then
@@ -78,7 +78,6 @@ module PgnWrite =
             Move(mv, writer)
             writer.Write(" ")
         |CommentEntry(str) -> 
-            writer.WriteLine()
             writer.Write("{" + str + "} ")
         |GameEndEntry(gr) -> writer.Write(ResultString(gr))
         |NAGEntry(cd) -> 
@@ -86,25 +85,26 @@ module PgnWrite =
             writer.Write(" ")
         |RAVEntry(ml) -> 
             writer.WriteLine()
+            writer.Write(indent + " ")
             writer.Write("(")
-            MoveText(ml, writer)
+            MoveText(ml, writer, indent + " ")
             writer.WriteLine(")")
+            writer.Write(indent + " ")
     
-    and MoveText(ml:MoveTextEntry list, writer:TextWriter) =
-        let doent i m =
-            MoveTextEntry(m,writer)
-            //if i<ml.Length-1 then writer.Write(" ")
+    and MoveText(ml:MoveTextEntry list, writer:TextWriter, indent:string) =
+        let doent m =
+            MoveTextEntry(m,writer,indent)
 
-        ml|>List.iteri doent
+        ml|>List.iter doent
     
     let MoveTextEntryStr(entry:MoveTextEntry) =
         let writer = new StringWriter()
-        MoveTextEntry(entry,writer)
+        MoveTextEntry(entry,writer,"")
         writer.ToString()
 
     let MoveTextStr(ml:MoveTextEntry list) =
         let writer = new StringWriter()
-        MoveText(ml,writer)
+        MoveText(ml,writer,"")
         writer.ToString()
 
     let Tag(name:string, value:string, writer:TextWriter) =
@@ -128,7 +128,7 @@ module PgnWrite =
             Tag(info.Key, info.Value, writer)
 
         writer.WriteLine();
-        MoveText(game.MoveText, writer)
+        MoveText(game.MoveText, writer,"")
         writer.WriteLine();
 
     let GameStr(game:Game) =

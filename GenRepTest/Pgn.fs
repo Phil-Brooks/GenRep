@@ -48,5 +48,5 @@ module Pgn =
         let gm = Pgn.Load complex
         Pgn.Save ncomplex gm
         let lines = File.ReadAllLines ncomplex
-        lines.Length|>should equal 16
+        lines.Length|>should equal 26
 
