@@ -9,10 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="BestDict.fs" />
+    <Compile Include="BestCache.fs" />
     <Compile Include="Best.fs" />
     <Compile Include="RespDict.fs" />
     <Compile Include="RespCache.fs" />
-    <Compile Include="Li.fs" />
+    <Compile Include="Resp.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

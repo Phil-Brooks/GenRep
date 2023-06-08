@@ -3,7 +3,7 @@
 open FlounderLib
 
 module Best =
-    let Get (depth:int) (fenstr:string) =
+    let Calc (depth:int) (fenstr:string) =
         //utility to get san
         let Sans (mv:OrdMoveEntryRec) (rs:OrdMoveEntryRec) =
             let uci = OrdMove.ToStr mv
@@ -36,3 +36,20 @@ module Best =
         let sbm,sresp = Sans bm resp
         {Best=sbm;Resp=sresp;Eval=eval}
     
+    let GetWhite (depth:int) (fen:string) =
+        let dict = BestCache.LoadWhite()
+        if dict.ContainsKey fen then dict[fen]
+        else
+            let ans = Calc depth fen
+            dict.Add(fen,ans)
+            BestCache.SaveWhite(dict)
+            ans
+
+    let GetBlack (depth:int) (fen:string) =
+        let dict = BestCache.LoadBlack()
+        if dict.ContainsKey fen then dict[fen]
+        else
+            let ans = Calc depth fen
+            dict.Add(fen,ans)
+            BestCache.SaveBlack(dict)
+            ans

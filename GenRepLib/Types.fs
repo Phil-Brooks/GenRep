@@ -6,3 +6,4 @@ open System.Collections.Generic
 module Types =
     type RespCacheDict = Dictionary<string,string list>
     type BestEntry = {Best:string;Resp:string;Eval:int}
+    type BestCacheDict = Dictionary<string,BestEntry>

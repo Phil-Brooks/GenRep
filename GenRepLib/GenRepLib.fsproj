@@ -7,9 +7,10 @@
 
   <ItemGroup>
     <Compile Include="Types.fs" />
-    <Compile Include="Best.fs" />
+    <Compile Include="BestCache.fs" />
     <Compile Include="RespCache.fs" />
-    <Compile Include="Li.fs" />
+    <Compile Include="Best.fs" />
+    <Compile Include="Resp.fs" />
   </ItemGroup>
 
   <ItemGroup>
