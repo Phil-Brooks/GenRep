@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestData", "TestData", "{6D
 		TestData\Cache.txt = TestData\Cache.txt
 		TestData\Complex.pgn = TestData\Complex.pgn
 		TestData\DuffCache.txt = TestData\DuffCache.txt
+		TestData\nComplex.pgn = TestData\nComplex.pgn
+		TestData\nSimple.pgn = TestData\nSimple.pgn
 		TestData\Simple.pgn = TestData\Simple.pgn
 	EndProjectSection
 EndProject
@@ -26,6 +28,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{6DC74159-5
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rep", "Rep", "{BDA1DF59-E6AE-4213-8CFD-8ABD71EC84E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "White", "White", "{9B956398-1478-4EF1-B290-939A63164043}"
+	ProjectSection(SolutionItems) = preProject
+		Rep\White\Ch1base.pgn = Rep\White\Ch1base.pgn
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Black", "Black", "{19A46E3C-DE01-4CA1-BAD2-09573AD87EF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +67,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9B956398-1478-4EF1-B290-939A63164043} = {BDA1DF59-E6AE-4213-8CFD-8ABD71EC84E2}
+		{19A46E3C-DE01-4CA1-BAD2-09573AD87EF0} = {BDA1DF59-E6AE-4213-8CFD-8ABD71EC84E2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {690CD237-13D6-4036-BFDD-4A700F44CC19}
