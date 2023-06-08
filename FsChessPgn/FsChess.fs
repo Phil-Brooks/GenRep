@@ -212,6 +212,14 @@ module Best=
     ///Add for one fen given dictionary, depth and fen
     let AddFen = FsChessPgn.Best.AddFen
 
+module IO =
+
+    ///Get Game from a file
+    let ReadFromFile = FsChessPgn.RegParse.ReadGame
+
+    ///Write a Game to a file
+    let WriteFile = FsChessPgn.PgnWriter.WriteGame
+
 
 module Pretty =
 

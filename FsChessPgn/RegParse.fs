@@ -19,7 +19,7 @@ module RegParse =
         | Invalid
         | FinishedInvalid
     
-    let rec private NextGameRdr(sr : StreamReader) = 
+    let rec NextGameRdr(sr : StreamReader) = 
         let nl = System.Environment.NewLine
         let rec proclin st cstr s gm = 
             if s = "" then 
@@ -143,11 +143,33 @@ module RegParse =
         gm
     
     let AllGamesRdr(sr : System.IO.StreamReader) = 
-        seq { 
-            while not sr.EndOfStream do
-                let gm = NextGameRdr(sr)
-                if gm<>GameEMP then
-                    yield gm
-        }
+          seq { 
+              while not sr.EndOfStream do
+                  let gm = NextGameRdr(sr)
+                  if gm<>GameEMP then
+                      yield gm
+          }
     
+    let ReadFromStream(stream : Stream) = 
+        let sr = new StreamReader(stream)
+        let db = AllGamesRdr(sr)
+        db
+
+    let ReadSeqFromFile(file : string) = 
+        let stream = new FileStream(file, FileMode.Open)
+        let db = ReadFromStream(stream)
+        db
+
+    let ReadFromFile(file : string) = 
+        let stream = new FileStream(file, FileMode.Open)
+        let result = ReadFromStream(stream) |> Seq.toList
+        stream.Close()
+        result
+
+    let ReadGame(file : string) = 
+        let stream = new FileStream(file, FileMode.Open)
+        let sr = new StreamReader(stream)
+        let result = NextGameRdr(sr)
+        stream.Close()
+        result
 

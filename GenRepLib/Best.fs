@@ -24,6 +24,8 @@ module Best =
         NNUEb.ResetAccumulator(Black)
         Search.Reset()
         RepHist.Reset()
+        //added
+        //TranTable.Reset()
         //get best
         let rec getbm cureval curdepth =
             if not (curdepth > depth) then

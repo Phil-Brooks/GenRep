@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Pgn.fs" />
     <Compile Include="BestDict.fs" />
     <Compile Include="BestCache.fs" />
     <Compile Include="Best.fs" />
