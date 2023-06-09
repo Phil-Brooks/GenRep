@@ -16,6 +16,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestData", "TestData", "{6D1A2602-3A4E-4987-8791-DF4C58C1AEB9}"
 	ProjectSection(SolutionItems) = preProject
 		TestData\BestCache.txt = TestData\BestCache.txt
+		TestData\BestCache1.txt = TestData\BestCache1.txt
 		TestData\Cache.txt = TestData\Cache.txt
 		TestData\Complex.pgn = TestData\Complex.pgn
 		TestData\DuffCache.txt = TestData\DuffCache.txt

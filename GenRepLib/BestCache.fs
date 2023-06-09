@@ -12,7 +12,7 @@ module BestCache =
             "{Best:" + b.Best + ";Resp:" + b.Resp + ";Eval:" + b.Eval.ToString() + "}"
         let lines =
             wd
-            |> Seq.map(fun (KeyValue(k,v)) -> "\"" + k + "\",[" + (b2str v) + "]")
+            |> Seq.map(fun (KeyValue(k,v)) -> "\"" + k + "\"," + (b2str v))
         if WhiteCache = "" then failwith "White Cache file not defined"
         else File.WriteAllLines(WhiteCache,lines)
     
