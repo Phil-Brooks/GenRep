@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Game.fs" />
+    <Compile Include="Rep.fs" />
     <Compile Include="Pgn.fs" />
     <Compile Include="BestDict.fs" />
     <Compile Include="BestCache.fs" />

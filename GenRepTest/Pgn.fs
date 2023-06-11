@@ -22,7 +22,7 @@ module Pgn =
         let gm = Pgn.Load simple
         gm.BlackPlayer|>should equal "Grob"
         gm.MoveText.Length|>should equal 5
-        gm.MoveText.Head|>FsChessPgn.PgnWrite.MoveTextEntryStr|>should equal "1. g4 "
+        gm.MoveText.Head|>FsChessPgn.PgnWrite.MoveTextEntryStr|>should equal "1. g4"
 
     [<Test>]
     let LoadComplex() =
@@ -30,7 +30,7 @@ module Pgn =
         let gm = Pgn.Load complex
         gm.BlackPlayer|>should equal "Grunfeld"
         gm.MoveText.Length|>should equal 28
-        gm.MoveText.Head|>FsChessPgn.PgnWrite.MoveTextEntryStr|>should equal "1. d4 "
+        gm.MoveText.Head|>FsChessPgn.PgnWrite.MoveTextEntryStr|>should equal "1. d4"
 
     [<Test>]
     let SaveSimple() =

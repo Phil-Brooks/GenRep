@@ -12,15 +12,15 @@
 
 1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. e3 c6 {[#]} 
  (4... Bg7 {[#]} 5. cxd5 Nxd5 6. Bc4 Nxc3 {[#]} 
-  (6... Nb6 {[#]} 7. Bb3 O-O 8. Nf3 c5 9. O-O cxd4 10. exd4 Nc6 {[#]} 
-   (10... Bg4 {[#]} 11. d5 N8d7 12. h3 Bxf3 13. Qxf3 $11 )
-   11. d5 Na5 12. Re1 Bg4 13. Bg5 Re8 14. d6 Qxd6 15. Bxf7+ Kxf7 16. Rxe7+ Qxe7 17. Bxe7 Kxe7 18. Nd5+ Kf8 19. Qd2 Bxf3 20. Nc7 Bc6 21. Qxa5 Kf7 22. Nxa8 Rxa8 23. Rb1 $11 {[#]} )
+   (6... Nb6 {[#]} 7. Bb3 O-O 8. Nf3 c5 9. O-O cxd4 10. exd4 Nc6 {[#]} 
+     (10... Bg4 {[#]} 11. d5 N8d7 12. h3 Bxf3 13. Qxf3 $11) 
+    11. d5 Na5 12. Re1 Bg4 13. Bg5 Re8 14. d6 Qxd6 15. Bxf7+ Kxf7 16. Rxe7+ Qxe7 17. Bxe7 Kxe7 18. Nd5+ Kf8 19. Qd2 Bxf3 20. Nc7 Bc6 21. Qxa5 Kf7 22. Nxa8 Rxa8 23. Rb1 $11 {[#]}) 
   7. bxc3 c5 8. Nf3 O-O 9. O-O Qc7 {[#]} 
-  (9... Nc6 {[#]} 10. Ba3 b6 11. dxc5 Qc7 
-   (11... Bxc3 {[#]} 12. Rc1 Bf6 13. Bd5 Bb7 14. e4 $14 )
-   12. Nd4 Bb7 13. Bd5 bxc5 14. Bxc5 Rad8 {[#]} 
-   (14... Rfd8 {[#]} 15. Bxf7+ )
-   15. Bf3 Na5 16. Bxb7 Qxc5 17. Bf3 e5 18. Nb3 Qxc3 19. Bd5 Nxb3 20. Qxb3 Qxb3 21. Bxb3 $14 {[#]} )
-  10. Qe2 Nc6 11. Ba3 {Transposed} )
- 5. Nf3 Bg7 6. Be2 O-O 7. O-O Bg4 8. cxd5 cxd5 9. Qb3 b6 10. h3 Bxf3 11. Bxf3 e6 12. Bd2 $14 {[#]} *
+   (9... Nc6 {[#]} 10. Ba3 b6 11. dxc5 Qc7 
+     (11... Bxc3 {[#]} 12. Rc1 Bf6 13. Bd5 Bb7 14. e4 $14) 
+    12. Nd4 Bb7 13. Bd5 bxc5 14. Bxc5 Rad8 {[#]} 
+     (14... Rfd8 {[#]} 15. Bxf7+) 
+    15. Bf3 Na5 16. Bxb7 Qxc5 17. Bf3 e5 18. Nb3 Qxc3 19. Bd5 Nxb3 20. Qxb3 Qxb3 21. Bxb3 $14 {[#]}) 
+  10. Qe2 Nc6 11. Ba3 {Transposed}) 
+5. Nf3 Bg7 6. Be2 O-O 7. O-O Bg4 8. cxd5 cxd5 9. Qb3 b6 10. h3 Bxf3 11. Bxf3 e6 12. Bd2 $14 {[#]} *
 

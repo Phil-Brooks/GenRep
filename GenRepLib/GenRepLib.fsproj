@@ -12,7 +12,7 @@
     <Compile Include="RespCache.fs" />
     <Compile Include="Best.fs" />
     <Compile Include="Resp.fs" />
-    <Compile Include="Game.fs" />
+    <Compile Include="Rep.fs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -69,42 +69,51 @@ module PgnWrite =
         Move(mv,writer)
         writer.ToString()
 
-    let rec MoveTextEntry(entry:MoveTextEntry, writer:TextWriter, indent:string) =
-        match entry with
-        |HalfMoveEntry(mn,ic,mv,amv) -> 
-            if mn.IsSome then
-                writer.Write(mn.Value)
-                writer.Write(if ic then "... " else ". ")
-            Move(mv, writer)
-            writer.Write(" ")
-        |CommentEntry(str) -> 
-            writer.Write("{" + str + "} ")
-        |GameEndEntry(gr) -> writer.Write(ResultString(gr))
-        |NAGEntry(cd) -> 
-            writer.Write("$" + (cd|>int).ToString())
-            writer.Write(" ")
-        |RAVEntry(ml) -> 
-            writer.WriteLine()
-            writer.Write(indent + " ")
-            writer.Write("(")
-            MoveText(ml, writer, indent + " ")
-            writer.WriteLine(")")
-            writer.Write(indent + " ")
-    
-    and MoveText(ml:MoveTextEntry list, writer:TextWriter, indent:string) =
-        let doent m =
-            MoveTextEntry(m,writer,indent)
+    let MoveText(ml:MoveTextEntry list, writer:TextWriter) =
+        let rec domte (iml:MoveTextEntry list) (indent:string) isc donl =
+            if not (List.isEmpty iml) then
+                if isc then writer.Write(" ")
+                let entry = iml.Head
+                match entry with
+                |HalfMoveEntry(mn,ic,mv,amv) -> 
+                    if donl then 
+                        writer.WriteLine()
+                        writer.Write(indent)
+                    if mn.IsSome then
+                        writer.Write(mn.Value)
+                        writer.Write(if ic then "... " else ". ")
+                    Move(mv, writer)
+                    domte iml.Tail indent true false
+                |CommentEntry(str) -> 
+                    if donl then 
+                        writer.WriteLine()
+                        writer.Write(indent)
+                    writer.Write("{" + str + "}")
+                    domte iml.Tail indent true false
+                |GameEndEntry(gr) -> writer.Write(ResultString(gr))
+                |NAGEntry(cd) -> 
+                    if donl then 
+                        writer.WriteLine()
+                        writer.Write(indent)
+                    writer.Write("$" + (cd|>int).ToString())
+                    domte iml.Tail indent true false
+                |RAVEntry(rml) -> 
+                    writer.WriteLine()
+                    writer.Write(indent + " ")
+                    writer.Write("(")
+                    domte rml (indent + "  ") false false
+                    writer.Write(")")
+                    domte iml.Tail indent true true
+        domte ml "" false false
 
-        ml|>List.iter doent
-    
     let MoveTextEntryStr(entry:MoveTextEntry) =
         let writer = new StringWriter()
-        MoveTextEntry(entry,writer,"")
+        MoveText([entry],writer)
         writer.ToString()
 
     let MoveTextStr(ml:MoveTextEntry list) =
         let writer = new StringWriter()
-        MoveText(ml,writer,"")
+        MoveText(ml,writer)
         writer.ToString()
 
     let Tag(name:string, value:string, writer:TextWriter) =
@@ -128,7 +137,7 @@ module PgnWrite =
             Tag(info.Key, info.Value, writer)
 
         writer.WriteLine();
-        MoveText(game.MoveText, writer,"")
+        MoveText(game.MoveText, writer)
         writer.WriteLine();
 
     let GameStr(game:Game) =

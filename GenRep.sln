@@ -34,10 +34,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rep", "Rep", "{BDA1DF59-E6A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "White", "White", "{9B956398-1478-4EF1-B290-939A63164043}"
 	ProjectSection(SolutionItems) = preProject
+		Rep\White\Ch1.pgn = Rep\White\Ch1.pgn
 		Rep\White\Ch1base.pgn = Rep\White\Ch1base.pgn
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Black", "Black", "{19A46E3C-DE01-4CA1-BAD2-09573AD87EF0}"
+	ProjectSection(SolutionItems) = preProject
+		Rep\Black\Ch1.pgn = Rep\Black\Ch1.pgn
+		Rep\Black\Ch1base.pgn = Rep\Black\Ch1base.pgn
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
