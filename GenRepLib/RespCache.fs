@@ -9,9 +9,11 @@ module RespCache =
     
     let SaveWhite (wd:RespCacheDict) =
         let l2str (l:string list) =
-            l
-            |>List.map (fun m -> "\"" + m + "\"")
-            |>List.reduce (fun a b -> a + ";" + b)
+            if l.IsEmpty then ""
+            else
+                l
+                |>List.map (fun m -> "\"" + m + "\"")
+                |>List.reduce (fun a b -> a + ";" + b)
         let lines =
             wd
             |> Seq.map(fun (KeyValue(k,v)) -> "\"" + k + "\",[" + (l2str v) + "]")
@@ -20,9 +22,11 @@ module RespCache =
     
     let SaveBlack (bd:RespCacheDict) =
         let l2str (l:string list) =
-            l
-            |>List.map (fun m -> "\"" + m + "\"")
-            |>List.reduce (fun a b -> a + ";" + b)
+            if l.IsEmpty then ""
+            else
+                l
+                |>List.map (fun m -> "\"" + m + "\"")
+                |>List.reduce (fun a b -> a + ";" + b)
         let lines =
             bd
             |> Seq.map(fun (KeyValue(k,v)) -> "\"" + k + "\",[" + (l2str v) + "]")
@@ -36,9 +40,12 @@ module RespCache =
             else
                 let k = bits[0].Trim('\"')
                 let v0:string = bits[1].Trim('[').Trim(']')
-                let ms = v0.Split(";")
-                let v = ms|>Array.map(fun m -> m.Trim('\"'))|>Array.toList
-                k,v
+                if v0="" then 
+                    k,[]
+                else
+                    let ms = v0.Split(";")
+                    let v = ms|>Array.map(fun m -> m.Trim('\"'))|>Array.toList
+                    k,v
 
         if WhiteCache = "" then failwith "White Cache file not defined"
         else 
@@ -54,9 +61,12 @@ module RespCache =
             else
                 let k = bits[0].Trim('\"')
                 let v0:string = bits[1].Trim('[').Trim(']')
-                let ms = v0.Split(";")
-                let v = ms|>Array.map(fun m -> m.Trim('\"'))|>Array.toList
-                k,v
+                if v0="" then 
+                    k,[]
+                else
+                    let ms = v0.Split(";")
+                    let v = ms|>Array.map(fun m -> m.Trim('\"'))|>Array.toList
+                    k,v
 
         if BlackCache = "" then failwith "Black Cache file not defined"
         else 

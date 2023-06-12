@@ -14,9 +14,8 @@ module Resp =
         if dict.ContainsKey fen then dict[fen]
         else
             let ans = LiGet fen
-            if ans.Length>0 then
-                dict.Add(fen,ans)
-                RespCache.SaveWhite(dict)
+            dict.Add(fen,ans)
+            RespCache.SaveWhite(dict)
             ans
     
     let GetBlack (fen:string) =
@@ -24,7 +23,6 @@ module Resp =
         if dict.ContainsKey fen then dict[fen]
         else
             let ans = LiGet fen
-            if ans.Length>0 then
-                dict.Add(fen,ans)
-                RespCache.SaveBlack(dict)
+            dict.Add(fen,ans)
+            RespCache.SaveBlack(dict)
             ans
