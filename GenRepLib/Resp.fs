@@ -1,13 +1,24 @@
 ﻿namespace GenRepLib
 
+open System.Threading
 open FsChessPgn.OpenExp
 
 module Resp =
     let LiGet (fen:string) =
-        let res = Results.Load(addr + fen)
-        let mvs = res.Moves
-        let sans = mvs|>Array.map(fun m -> m.San)
-        sans|>List.ofArray
+        let rec tryget ct =
+            try
+                let res = Results.Load(addr + fen)
+                let mvs = res.Moves
+                let sans = mvs|>Array.map(fun m -> m.San)
+                sans|>List.ofArray
+            with
+                | ex ->
+                    printfn "Fail probably 429, count: %i"  ct
+                    if ct<4 then
+                        Thread.Sleep(ct*100)
+                        tryget (ct+1)
+                    else failwith"too many tries"
+        tryget 1
     
     let GetWhite (fen:string) =
         let dict = RespCache.LoadWhite()

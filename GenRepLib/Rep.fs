@@ -13,6 +13,20 @@ module Rep =
         RespCache.WhiteCache <- Path.Combine(wfol(),"RespCache")
         RespCache.BlackCache <- Path.Combine(bfol(),"RespCache")
 
+    let WhiteChapters() =
+        let files = Directory.GetFiles(wfol())
+        let pgns = files|>Array.filter(fun f -> f.EndsWith("base.pgn"))
+        pgns
+        |>Array.map Path.GetFileNameWithoutExtension
+        |>Array.map(fun f -> f.Substring(0,f.Length-4))
+    
+    let BlackChapters() =
+        let files = Directory.GetFiles(bfol())
+        let pgns = files|>Array.filter(fun f -> f.EndsWith("base.pgn"))
+        pgns
+        |>Array.map Path.GetFileNameWithoutExtension
+        |>Array.map(fun f -> f.Substring(0,f.Length-4))
+
     let SaveWhite (nm:string) (gm:Game) =
         let wfile = Path.Combine(wfol(),nm + ".pgn")
         Pgn.Save wfile gm

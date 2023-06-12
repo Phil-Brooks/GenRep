@@ -14,6 +14,18 @@ module Rep =
         ()
 
     [<Test>]
+    let WhiteChapters() =
+        let ans = Rep.WhiteChapters()
+        ans.Length|>should equal 2
+        ans[0]|>should equal "Ch1"
+
+    [<Test>]
+    let BlackChapters() =
+        let ans = Rep.BlackChapters()
+        ans.Length|>should equal 1
+        ans[0]|>should equal "Ch1"
+
+    [<Test>]
     let AddWhite1st() =
         let testw = "Ch1"
         let ngm = Rep.AddWhite1st testw

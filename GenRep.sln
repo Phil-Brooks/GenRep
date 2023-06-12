@@ -36,6 +36,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "White", "White", "{9B956398
 	ProjectSection(SolutionItems) = preProject
 		Rep\White\Ch1.pgn = Rep\White\Ch1.pgn
 		Rep\White\Ch1base.pgn = Rep\White\Ch1base.pgn
+		Rep\White\Ch2.pgn = Rep\White\Ch2.pgn
+		Rep\White\Ch2base.pgn = Rep\White\Ch2base.pgn
 		Rep\White\RespCache = Rep\White\RespCache
 	EndProjectSection
 EndProject
