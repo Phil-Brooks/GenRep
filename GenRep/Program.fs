@@ -45,7 +45,23 @@ let main argv =
         let gmr = addresps 0 gm1
         let gm = Rep.AddBlackLast gmr
         Rep.SaveBlack ch gm
+    (*
+    Now have repertoires you can load into Chessable
+    EXTEND
+    1. Using vacant slot create course using Tools -> Create a Course
+    2. Give it a suitable name and specifiy relevant pieces for the repertoire
+    3. Create new empty chapters on chessable - Ch1..., Ch2... 
+    4. Import each chapter to the relevant target
+    4. Save the created chapter
+    *)
 
+
+    (*
+    To create a kindle book you need to:
+    1. 
+    
+    
+    *)
 
 
 

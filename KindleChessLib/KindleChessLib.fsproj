@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Types.fs" />
+    <Compile Include="Util.fs" />
+    <Compile Include="Direction.fs" />
+    <Compile Include="Player.fs" />
+    <Compile Include="PieceType.fs" />
+    <Compile Include="Piece.fs" />
+    <Compile Include="Rank.fs" />
+    <Compile Include="File.fs" />
+    <Compile Include="Square.fs" />
+    <Compile Include="NagUtil.fs" />
+    <Compile Include="Bitboard.fs" />
+    <Compile Include="Attacks.fs" />
+    <Compile Include="FEN.fs" />
+    <Compile Include="Move.fs" />
+    <Compile Include="Board.fs" />
+    <Compile Include="Png.fs" />
+    <Compile Include="MoveGenerate.fs" />
+    <Compile Include="PgnWrite.fs" />
+    <Compile Include="pMove.fs" />
+    <Compile Include="MoveTextEntry.fs" />
+    <Compile Include="Game.fs" />
+    <Compile Include="Pgn.fs" />
+    <Compile Include="Chap.fs" />
+    <Compile Include="Book.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotLiquid" Version="2.2.585" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FSharp.Markdown\FSharp.Markdown.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="6.0.1" />
+  </ItemGroup>
+
+</Project>
