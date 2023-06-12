@@ -13,11 +13,13 @@
     <Compile Include="Best.fs" />
     <Compile Include="Resp.fs" />
     <Compile Include="Rep.fs" />
+    <Compile Include="Kindle.fs" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\FlounderLib\FlounderLib.fsproj" />
     <ProjectReference Include="..\FsChessPgn\FsChessPgn.fsproj" />
+    <ProjectReference Include="..\KindleChessLib\KindleChessLib.fsproj" />
   </ItemGroup>
 
 </Project>
