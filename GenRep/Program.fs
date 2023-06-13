@@ -11,9 +11,9 @@ let main argv =
     5. Setup the cache files
     6. Set the depth for getting the best moves
     *)
-    Rep.fol <- @"D:\Github\GenRep\Rep"
+    Rep.fol <- @"D:\Rep\2023"
     Rep.setcache()
-    Best.depth <- 5
+    Best.depth <- 10
     (*
     Get array of chapters
     EXTEND
@@ -66,7 +66,7 @@ let main argv =
     *)
     Kindle.tfol <- @"D:\Github\GenRep\Templates"
     Kindle.ifol <- @"D:\Github\GenRep\Images"
-    Kindle.WhiteOpf "GrobWhite"
-    Kindle.BlackOpf "GrobBlack"
+    Kindle.WhiteOpf "W23"
+    Kindle.BlackOpf "B23"
 
     0 // return an integer exit code        
