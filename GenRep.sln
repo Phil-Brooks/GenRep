@@ -80,6 +80,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kindle", "Kindle", "{A3D259
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Grob", "Grob\Grob.fsproj", "{ED6F5EF3-70F2-4EE0-B626-C790FCD5CED1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cmd", "Cmd", "{2E78FC7F-570F-4A0F-839F-90D27F5E94CC}"
+	ProjectSection(SolutionItems) = preProject
+		Cmd\grob.bat = Cmd\grob.bat
+		Cmd\grobb.bat = Cmd\grobb.bat
+		Cmd\grobw.bat = Cmd\grobw.bat
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
