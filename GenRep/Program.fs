@@ -58,11 +58,16 @@ let main argv =
 
     (*
     To create a kindle book you need to:
-    1. 
-    
+    1. Create a markdown file with title of book for White and Black
+    2. Specify the templates and images folders
+    3. Run code to create OPF files and html
+    4. Use either Kindle Previewer or kindlegen to create mobi files
     
     *)
-
+    Kindle.tfol <- @"D:\Github\GenRep\Templates"
+    Kindle.ifol <- @"D:\Github\GenRep\Images"
+    Kindle.WhiteOpf "GrobWhite"
+    Kindle.BlackOpf "GrobBlack"
 
 
 
