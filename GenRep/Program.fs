@@ -69,13 +69,4 @@ let main argv =
     Kindle.WhiteOpf "GrobWhite"
     Kindle.BlackOpf "GrobBlack"
 
-
-
-
-
-
-
-
-
-
     0 // return an integer exit code        
