@@ -10,10 +10,12 @@ let main argv =
     4. Specify the rep folder
     5. Setup the cache files
     6. Set the depth for getting the best moves
+    7. Set the limit on the number of responses
     *)
     Rep.fol <- @"D:\Rep\2023"
     Rep.setcache()
     Best.depth <- 10
+    Resp.lim <- 5
     (*
     Get array of chapters
     EXTEND
