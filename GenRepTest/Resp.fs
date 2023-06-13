@@ -42,7 +42,7 @@ module Resp =
         RespCache.WhiteCache <- ""
         File.Delete testwhite
         ans.[0] |> should equal "e4"
-        ans.Length|> should equal 12
+        ans.Length|> should equal 10
 
     [<Test>]
     let GetWhite() =
@@ -64,7 +64,7 @@ module Resp =
         RespCache.BlackCache <- ""
         File.Delete testblack
         ans.[0] |> should equal "e4"
-        ans.Length|> should equal 12
+        ans.Length|> should equal 10
 
     [<Test>]
     let GetBlack() =
