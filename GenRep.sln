@@ -39,17 +39,44 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "White", "White", "{9B956398
 		Rep\White\Ch2.pgn = Rep\White\Ch2.pgn
 		Rep\White\Ch2base.pgn = Rep\White\Ch2base.pgn
 		Rep\White\RespCache = Rep\White\RespCache
+		Rep\White\GrobWhite.md = Rep\White\GrobWhite.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Black", "Black", "{19A46E3C-DE01-4CA1-BAD2-09573AD87EF0}"
 	ProjectSection(SolutionItems) = preProject
 		Rep\Black\Ch1.pgn = Rep\Black\Ch1.pgn
 		Rep\Black\Ch1base.pgn = Rep\Black\Ch1base.pgn
+		Rep\Black\GrobBlack.md = Rep\Black\GrobBlack.md
 	EndProjectSection
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FSharp.Markdown", "FSharp.Markdown\FSharp.Markdown.fsproj", "{D695978D-0B78-4790-8CCC-216786D8431D}"
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "KindleChessLib", "KindleChessLib\KindleChessLib.fsproj", "{F032D6DE-AB20-4892-A69B-3A2F604E7EC7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kindle", "Kindle", "{41E337E4-E7C5-4D37-9830-B1E77009DE64}"
+	ProjectSection(SolutionItems) = preProject
+		Rep\White\Kindle\book.css = Rep\White\Kindle\book.css
+		Rep\White\Kindle\book.ncx = Rep\White\Kindle\book.ncx
+		Rep\White\Kindle\book.opf = Rep\White\Kindle\book.opf
+		Rep\White\Kindle\CH1.html = Rep\White\Kindle\CH1.html
+		Rep\White\Kindle\CH2.html = Rep\White\Kindle\CH2.html
+		Rep\White\Kindle\cover.gif = Rep\White\Kindle\cover.gif
+		Rep\White\Kindle\toc.html = Rep\White\Kindle\toc.html
+		Rep\White\Kindle\Variations.html = Rep\White\Kindle\Variations.html
+		Rep\White\Kindle\Welcome.html = Rep\White\Kindle\Welcome.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kindle", "Kindle", "{A3D259D0-4472-421F-A54C-A3CA7E54594C}"
+	ProjectSection(SolutionItems) = preProject
+		Rep\Black\Kindle\book.css = Rep\Black\Kindle\book.css
+		Rep\Black\Kindle\book.ncx = Rep\Black\Kindle\book.ncx
+		Rep\Black\Kindle\book.opf = Rep\Black\Kindle\book.opf
+		Rep\Black\Kindle\CH1.html = Rep\Black\Kindle\CH1.html
+		Rep\Black\Kindle\cover.gif = Rep\Black\Kindle\cover.gif
+		Rep\Black\Kindle\toc.html = Rep\Black\Kindle\toc.html
+		Rep\Black\Kindle\Variations.html = Rep\Black\Kindle\Variations.html
+		Rep\Black\Kindle\Welcome.html = Rep\Black\Kindle\Welcome.html
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -92,6 +119,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9B956398-1478-4EF1-B290-939A63164043} = {BDA1DF59-E6AE-4213-8CFD-8ABD71EC84E2}
 		{19A46E3C-DE01-4CA1-BAD2-09573AD87EF0} = {BDA1DF59-E6AE-4213-8CFD-8ABD71EC84E2}
+		{41E337E4-E7C5-4D37-9830-B1E77009DE64} = {9B956398-1478-4EF1-B290-939A63164043}
+		{A3D259D0-4472-421F-A54C-A3CA7E54594C} = {19A46E3C-DE01-4CA1-BAD2-09573AD87EF0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {690CD237-13D6-4036-BFDD-4A700F44CC19}

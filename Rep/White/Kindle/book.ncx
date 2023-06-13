@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN"
+	"http://www.daisy.org/z3986/2005/ncx-2005-1.dtd">
+
+<!--
+	For a detailed description of NCX usage please refer to:
+	http://www.idpf.org/2007/opf/OPF_2.0_final_spec.html#Section2.4.1
+-->
+
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="en-US">
+<head>
+<meta name="dtb:uid" content="BookId"/>
+<meta name="dtb:depth" content="2"/>
+<meta name="dtb:totalPageCount" content="0"/>
+<meta name="dtb:maxPageNumber" content="0"/>
+</head>
+<docTitle><text>GrobWhite</text></docTitle>
+<docAuthor><text>Phil Brooks</text></docAuthor>
+  <navMap>
+    <navPoint class="toc" id="toc" playOrder="1">
+      <navLabel>
+        <text>Table of Contents</text>
+      </navLabel>
+      <content src="toc.html"/>
+    </navPoint>
+    <navPoint class="welcome" id="welcome" playOrder="2">
+      <navLabel>
+        <text>Welcome</text>
+      </navLabel>
+      <content src="Welcome.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="chapter_1" playOrder="3">
+      <navLabel>
+        <text>Chapter 1: d5</text>
+      </navLabel>
+      <content src="CH1.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="chapter_2" playOrder="4">
+      <navLabel>
+        <text>Chapter 2: e5</text>
+      </navLabel>
+      <content src="CH2.html"/>
+    </navPoint>
+    <navPoint class="chapter" id="variations" playOrder="5">
+      <navLabel>
+        <text>Variations</text>
+      </navLabel>
+      <content src="Variations.html"/>
+    </navPoint>
+  </navMap>
+</ncx>

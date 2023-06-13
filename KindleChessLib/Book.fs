@@ -8,14 +8,15 @@ open FSharp.Markdown
 module Book =
     
     ///genh - generates HTML files for book
-    let genh pgn tfol ifol ofol =
+    let genh title fls pfol tfol ifol ofol =
         try 
-            let gms = pgn|>Pgn.ReadGames
-            let title = Path.GetFileNameWithoutExtension(pgn)
-            let pfol = Path.GetDirectoryName(pgn)
+            let gms = 
+                fls
+                |>Array.map(Pgn.ReadGames)
+                |>Array.map(fun gml -> gml.Head)
             Directory.CreateDirectory(ofol)|>ignore
             //do label for games
-            let glbls = gms|>List.map(fun gm -> (if (gm.WhitePlayer<>"") && (gm.WhitePlayer<>"?") then gm.WhitePlayer else gm.BlackPlayer))|>List.toArray
+            let glbls = gms|>Array.map(fun gm -> (if (gm.WhitePlayer<>"") && (gm.WhitePlayer<>"?") then gm.WhitePlayer else gm.BlackPlayer))
 
             //write files
             //register types used
@@ -68,11 +69,11 @@ module Book =
                 |> Template.Parse
             
             let vars =
-                gms |> List.toArray |> Array.mapi (fun i c -> c |> Chap.ToVar i)
+                gms |> Array.mapi (fun i c -> c |> Chap.ToVar i)
             let ostr = t.Render(Hash.FromDictionary(dict [ "vars", box vars; "glbls", box glbls]))
             let ouf = Path.Combine(ofol, "Variations.html")
             File.WriteAllText(ouf, ostr)
             // chapters
-            gms |> List.iteri (Chap.genh tfol ifol ofol)
+            gms |> Array.iteri (Chap.genh tfol ifol ofol)
         with e -> failwith ("Generation failed with error: " + e.ToString())
     

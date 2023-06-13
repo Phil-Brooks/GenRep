@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Kindle.fs" />
     <Compile Include="Rep.fs" />
     <Compile Include="Pgn.fs" />
     <Compile Include="BestDict.fs" />
