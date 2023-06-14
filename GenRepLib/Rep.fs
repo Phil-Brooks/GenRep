@@ -8,8 +8,8 @@ module Rep =
     let wfol() = Path.Combine(fol,"White")
     let bfol() = Path.Combine(fol,"Black")
     let setcache() = 
-        BestCache.WhiteCache <- Path.Combine(wfol(),"BestCache")
-        BestCache.BlackCache <- Path.Combine(bfol(),"BestCache")
+        Best.SetupWhite(Path.Combine(wfol(),"BestCache"))
+        Best.SetupBlack(Path.Combine(bfol(),"BestCache"))
         RespCache.WhiteCache <- Path.Combine(wfol(),"RespCache")
         RespCache.BlackCache <- Path.Combine(bfol(),"RespCache")
 

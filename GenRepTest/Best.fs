@@ -24,11 +24,11 @@ module Best =
     let GetWhiteMissing() =
         let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
         let testwhite = @"D:\Github\GenRep\TestData\TempCache.txt"
-        BestCache.WhiteCache <- testwhite
+        Best.SetupWhite testwhite
         File.Exists testwhite|>should equal false
         let ans = Best.GetWhite fen
         File.Exists testwhite|>should equal true
-        BestCache.WhiteCache <- ""
+        //BestCache.WhiteCache <- ""
         File.Delete testwhite
         ans.Best|>should equal "e4"
         ans.Resp|>should equal "e5"
@@ -38,7 +38,7 @@ module Best =
     let GetWhite() =
         let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
         let testwhite = @"D:\Github\GenRep\TestData\BestCache.txt"
-        BestCache.WhiteCache <- testwhite
+        Best.SetupWhite testwhite
         let ans = Best.GetWhite fen
         ans.Best|>should equal "e4"
         ans.Resp|>should equal "c5"
@@ -48,11 +48,11 @@ module Best =
     let GetBlackMissing() =
         let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
         let testblack = @"D:\Github\GenRep\TestData\TempCache.txt"
-        BestCache.BlackCache <- testblack
+        Best.SetupBlack testblack
         File.Exists testblack|>should equal false
         let ans = Best.GetBlack fen
         File.Exists testblack|>should equal true
-        BestCache.BlackCache <- ""
+        //BestCache.BlackCache <- ""
         File.Delete testblack
         ans.Best|>should equal "e4"
         ans.Resp|>should equal "e5"
@@ -62,7 +62,7 @@ module Best =
     let GetBlack() =
         let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
         let testblack = @"D:\Github\GenRep\TestData\BestCache.txt"
-        BestCache.BlackCache <- testblack
+        Best.SetupBlack testblack
         let ans = Best.GetBlack fen
         ans.Best|>should equal "e4"
         ans.Resp|>should equal "c5"

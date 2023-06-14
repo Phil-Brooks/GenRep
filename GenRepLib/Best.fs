@@ -1,9 +1,21 @@
 ﻿namespace GenRepLib
 
 open FlounderLib
+open System.Collections.Generic
 
 module Best =
     let mutable depth = 5
+    let mutable wdict = new Dictionary<string, BestEntry>()
+    let mutable bdict = new Dictionary<string, BestEntry>()
+
+    let SetupWhite(wfil) = 
+        BestCache.wcache <- wfil
+        wdict <- BestCache.LoadWhite()
+
+    let SetupBlack(bfil) = 
+        BestCache.bcache <- bfil
+        bdict <- BestCache.LoadBlack()
+
     let Calc (fenstr:string) =
         //utility to get san
         let Sans (mv:OrdMoveEntryRec) (rs:OrdMoveEntryRec) =
@@ -40,12 +52,11 @@ module Best =
         {Best=sbm;Resp=sresp;Eval=eval}
     
     let GetWhite (fen:string) =
-        let dict = BestCache.LoadWhite()
-        if dict.ContainsKey fen then dict[fen]
+        if wdict.ContainsKey fen then wdict[fen]
         else
             let ans = Calc fen
-            dict.Add(fen,ans)
-            BestCache.SaveWhite(dict)
+            wdict.Add(fen,ans)
+            BestCache.SaveWhite(wdict)
             ans
 
     let GetBlack (fen:string) =

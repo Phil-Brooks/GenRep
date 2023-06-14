@@ -4,8 +4,8 @@ open System.IO
 open System.Collections.Generic
 
 module BestCache =
-    let mutable WhiteCache = ""
-    let mutable BlackCache = ""
+    let mutable wcache = ""
+    let mutable bcache = ""
     
     let SaveWhite (wd:BestCacheDict) =
         let b2str (b:BestEntry) =
@@ -13,8 +13,8 @@ module BestCache =
         let lines =
             wd
             |> Seq.map(fun (KeyValue(k,v)) -> "\"" + k + "\"," + (b2str v))
-        if WhiteCache = "" then failwith "White Cache file not defined"
-        else File.WriteAllLines(WhiteCache,lines)
+        if wcache = "" then failwith "White Cache file not defined"
+        else File.WriteAllLines(wcache,lines)
     
     let SaveBlack (bd:BestCacheDict) =
         let b2str (b:BestEntry) =
@@ -22,8 +22,8 @@ module BestCache =
         let lines =
             bd
             |> Seq.map(fun (KeyValue(k,v)) -> "\"" + k + "\"," + (b2str v))
-        if BlackCache = "" then failwith "Black Cache file not defined"
-        else File.WriteAllLines(BlackCache,lines)
+        if bcache = "" then failwith "Black Cache file not defined"
+        else File.WriteAllLines(bcache,lines)
 
     let LoadWhite () =
         let ln2tuple (l:string) =
@@ -40,10 +40,10 @@ module BestCache =
                 let v = {Best=best;Resp=resp;Eval=eval}
                 k,v
 
-        if WhiteCache = "" then failwith "White Cache file not defined"
+        if wcache = "" then failwith "White Cache file not defined"
         else 
-            if File.Exists(WhiteCache) then
-                let lines = File.ReadAllLines(WhiteCache)
+            if File.Exists(wcache) then
+                let lines = File.ReadAllLines(wcache)
                 lines|>Array.map ln2tuple|>dict|>Dictionary
             else new Dictionary<string, BestEntry>()
 
@@ -62,9 +62,9 @@ module BestCache =
                 let v = {Best=best;Resp=resp;Eval=eval}
                 k,v
 
-        if BlackCache = "" then failwith "Black Cache file not defined"
+        if bcache = "" then failwith "Black Cache file not defined"
         else 
-            if File.Exists(BlackCache) then
-                let lines = File.ReadAllLines(BlackCache)
+            if File.Exists(bcache) then
+                let lines = File.ReadAllLines(bcache)
                 lines|>Array.map ln2tuple|>dict|>Dictionary
             else new Dictionary<string, BestEntry>()
