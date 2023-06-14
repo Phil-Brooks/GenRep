@@ -10,8 +10,8 @@ module Rep =
     let setcache() = 
         Best.SetupWhite(Path.Combine(wfol(),"BestCache"))
         Best.SetupBlack(Path.Combine(bfol(),"BestCache"))
-        RespCache.WhiteCache <- Path.Combine(wfol(),"RespCache")
-        RespCache.BlackCache <- Path.Combine(bfol(),"RespCache")
+        Resp.SetupWhite(Path.Combine(wfol(),"RespCache"))
+        Resp.SetupBlack(Path.Combine(bfol(),"RespCache"))
 
     let WhiteChapters() =
         let files = Directory.GetFiles(wfol())

@@ -1,10 +1,22 @@
 ﻿namespace GenRepLib
 
 open System.Threading
+open System.Collections.Generic
 open FsChessPgn.OpenExp
 
 module Resp =
     let mutable lim = 10
+    let mutable wdict = new Dictionary<string, string list>()
+    let mutable bdict = new Dictionary<string, string list>()
+
+    let SetupWhite(wfil) = 
+        RespCache.wcache <- wfil
+        wdict <- RespCache.LoadWhite()
+
+    let SetupBlack(bfil) = 
+        RespCache.bcache <- bfil
+        bdict <- RespCache.LoadBlack()
+
     let LiGet (fen:string) =
         let rec tryget ct =
             try
@@ -22,26 +34,24 @@ module Resp =
         tryget 1
     
     let GetWhite (fen:string) =
-        let dict = RespCache.LoadWhite()
         let all =
-            if dict.ContainsKey fen then dict[fen]
+            if wdict.ContainsKey fen then wdict[fen]
             else
                 let ans = LiGet fen
-                dict.Add(fen,ans)
-                RespCache.SaveWhite(dict)
+                wdict.Add(fen,ans)
+                RespCache.SaveWhite(wdict)
                 ans
         if all.Length>lim then
             all.[..lim-1]    
         else all
     
     let GetBlack (fen:string) =
-        let dict = RespCache.LoadBlack()
         let all =
-            if dict.ContainsKey fen then dict[fen]
+            if bdict.ContainsKey fen then bdict[fen]
             else
                 let ans = LiGet fen
-                dict.Add(fen,ans)
-                RespCache.SaveBlack(dict)
+                bdict.Add(fen,ans)
+                RespCache.SaveBlack(bdict)
                 ans
         if all.Length>lim then
             all.[..lim-1]    

@@ -35,11 +35,12 @@ module Resp =
     let GetWhiteMissing() =
         let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
         let testwhite = @"D:\Github\GenRep\TestData\TempCache.txt"
-        RespCache.WhiteCache <- testwhite
+        File.Delete testwhite
+        Resp.SetupWhite testwhite
         File.Exists testwhite|>should equal false
         let ans = Resp.GetWhite(fen)
         File.Exists testwhite|>should equal true
-        RespCache.WhiteCache <- ""
+        //RespCache.WhiteCache <- ""
         File.Delete testwhite
         ans.[0] |> should equal "e4"
         ans.Length|> should equal 10
@@ -48,7 +49,7 @@ module Resp =
     let GetWhite() =
         let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
         let testwhite = @"D:\Github\GenRep\TestData\Cache.txt"
-        RespCache.WhiteCache <- testwhite
+        Resp.SetupWhite testwhite
         let ans = Resp.GetWhite(fen)
         ans.[0] |> should equal "e4"
         ans.Length|> should equal 2
@@ -57,11 +58,11 @@ module Resp =
     let GetBlackMissing() =
         let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
         let testblack = @"D:\Github\GenRep\TestData\TempCache.txt"
-        RespCache.BlackCache <- testblack
+        Resp.SetupBlack testblack
         File.Exists testblack|>should equal false
         let ans = Resp.GetBlack(fen)
         File.Exists testblack|>should equal true
-        RespCache.BlackCache <- ""
+        //RespCache.BlackCache <- ""
         File.Delete testblack
         ans.[0] |> should equal "e4"
         ans.Length|> should equal 10
@@ -70,7 +71,7 @@ module Resp =
     let GetBlack() =
         let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
         let testblack = @"D:\Github\GenRep\TestData\Cache.txt"
-        RespCache.BlackCache <- testblack
+        Resp.SetupBlack testblack
         let ans = Resp.GetBlack(fen)
         ans.[0] |> should equal "e4"
         ans.Length|> should equal 2

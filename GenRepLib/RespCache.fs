@@ -4,8 +4,8 @@ open System.IO
 open System.Collections.Generic
 
 module RespCache =
-    let mutable WhiteCache = ""
-    let mutable BlackCache = ""
+    let mutable wcache = ""
+    let mutable bcache = ""
     
     let SaveWhite (wd:RespCacheDict) =
         let l2str (l:string list) =
@@ -17,8 +17,8 @@ module RespCache =
         let lines =
             wd
             |> Seq.map(fun (KeyValue(k,v)) -> "\"" + k + "\",[" + (l2str v) + "]")
-        if WhiteCache = "" then failwith "White Cache file not defined"
-        else File.WriteAllLines(WhiteCache,lines)
+        if wcache = "" then failwith "White Cache file not defined"
+        else File.WriteAllLines(wcache,lines)
     
     let SaveBlack (bd:RespCacheDict) =
         let l2str (l:string list) =
@@ -30,8 +30,8 @@ module RespCache =
         let lines =
             bd
             |> Seq.map(fun (KeyValue(k,v)) -> "\"" + k + "\",[" + (l2str v) + "]")
-        if BlackCache = "" then failwith "Black Cache file not defined"
-        else File.WriteAllLines(BlackCache,lines)
+        if bcache = "" then failwith "Black Cache file not defined"
+        else File.WriteAllLines(bcache,lines)
 
     let LoadWhite () =
         let ln2tuple (l:string) =
@@ -47,10 +47,10 @@ module RespCache =
                     let v = ms|>Array.map(fun m -> m.Trim('\"'))|>Array.toList
                     k,v
 
-        if WhiteCache = "" then failwith "White Cache file not defined"
+        if wcache = "" then failwith "White Cache file not defined"
         else 
-            if File.Exists(WhiteCache) then
-                let lines = File.ReadAllLines(WhiteCache)
+            if File.Exists(wcache) then
+                let lines = File.ReadAllLines(wcache)
                 lines|>Array.map ln2tuple|>dict|>Dictionary
             else new Dictionary<string, string list>()
 
@@ -68,9 +68,9 @@ module RespCache =
                     let v = ms|>Array.map(fun m -> m.Trim('\"'))|>Array.toList
                     k,v
 
-        if BlackCache = "" then failwith "Black Cache file not defined"
+        if bcache = "" then failwith "Black Cache file not defined"
         else 
-            if File.Exists(BlackCache) then
-                let lines = File.ReadAllLines(BlackCache)
+            if File.Exists(bcache) then
+                let lines = File.ReadAllLines(bcache)
                 lines|>Array.map ln2tuple|>dict|>Dictionary
             else new Dictionary<string, string list>()
