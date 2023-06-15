@@ -24,7 +24,7 @@ let main argv =
     3. Add the concluding move for each line
     4. Save the created chapter
     *)
-    let num = 10
+    let num = 8
     let wchs = Rep.WhiteChapters()
     for ch in wchs do
         let gm1 = Rep.AddWhite1st ch
