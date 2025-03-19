@@ -23,7 +23,7 @@ module pMove =
     
     let Parse(s : string) =
         //Active pattern to parse move string
-        let (|SimpleMove|Castle|PawnCapture|AmbiguousFile|AmbiguousRank|Promotion|PromCapture|) s =
+        let (|SimpleMove|Castle|PawnCapture|AmbiguousFile|AmbiguousRank|Promotion|PromCapture|) (s:string) =
             if Regex.IsMatch(s, "^[BNRQK][a-h][1-8]$") then 
                 SimpleMove(s.[0]|>PieceType.Parse, s.[1..]|>Square.Parse)
             elif Regex.IsMatch(s, "^[a-h][1-8]$") then SimpleMove(PieceType.Pawn, s|>Square.Parse)
