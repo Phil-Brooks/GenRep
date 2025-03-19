@@ -2,6 +2,7 @@
 
 [<EntryPoint>]
 let main argv =
+    let kin = argv.Length>0 && argv[0]="kin"
     (*
     SETUP
     1. Create a folder e.g. D:\Rep
@@ -12,10 +13,9 @@ let main argv =
     6. Set the depth for getting the best moves
     7. Set the limit on the number of responses
     *)
-    Rep.fol <- @"D:\Rep\2023"
+    Rep.fol <- @"D:\Rep\2024"
     Rep.setcache()
-    Best.depth <- 10
-    Resp.lim <- 5
+    Best.depth <- 5
     (*
     Get array of chapters
     EXTEND
@@ -24,29 +24,33 @@ let main argv =
     3. Add the concluding move for each line
     4. Save the created chapter
     *)
-    let num = 8
+    let mnum = 10
     let wchs = Rep.WhiteChapters()
-    for ch in wchs do
-        let gm1 = Rep.AddWhite1st ch
-        let rec addresps ct igm =
-            if ct = num then igm
-            else
-                let ogm = Rep.AddWhiteResps igm
-                addresps (ct+1) ogm
-        let gmr = addresps 0 gm1
-        let gm = Rep.AddWhiteLast gmr
-        Rep.SaveWhite ch gm
+    if not kin then
+        for ch in wchs do
+            let gm1 = Rep.AddWhite1st ch
+            let num = mnum - (gm1.MoveText.Length/2)
+            let rec addresps ct igm =
+                if ct = num then igm
+                else
+                    let ogm = Rep.AddWhiteResps igm
+                    addresps (ct+1) ogm
+            let gmr = addresps 0 gm1
+            let gm = Rep.AddWhiteLast gmr
+            Rep.SaveWhite ch gm
     let bchs = Rep.BlackChapters()
-    for ch in bchs do
-        let gm1 = Rep.AddBlack1st ch
-        let rec addresps ct igm =
-            if ct = num then igm
-            else
-                let ogm = Rep.AddBlackResps igm
-                addresps (ct+1) ogm
-        let gmr = addresps 0 gm1
-        let gm = Rep.AddBlackLast gmr
-        Rep.SaveBlack ch gm
+    if not kin then
+        for ch in bchs do
+            let gm1 = Rep.AddBlack1st ch
+            let num = mnum - (gm1.MoveText.Length/2)
+            let rec addresps ct igm =
+                if ct = num then igm
+                else
+                    let ogm = Rep.AddBlackResps igm
+                    addresps (ct+1) ogm
+            let gmr = addresps 0 gm1
+            let gm = Rep.AddBlackLast gmr
+            Rep.SaveBlack ch gm
     (*
     Now have repertoires you can load into Chessable
     EXTEND
@@ -68,7 +72,7 @@ let main argv =
     *)
     Kindle.tfol <- @"D:\Github\GenRep\Templates"
     Kindle.ifol <- @"D:\Github\GenRep\Images"
-    Kindle.WhiteOpf "W23"
-    Kindle.BlackOpf "B23"
+    Kindle.WhiteOpf "W24"
+    Kindle.BlackOpf "B24"
 
     0 // return an integer exit code        

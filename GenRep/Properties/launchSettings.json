@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GenRep": {
+      "commandName": "Project",
+      "commandLineArgs": "kin"
+    }
+  }
+}

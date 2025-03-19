@@ -38,8 +38,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "White", "White", "{9B956398
 		Rep\White\Ch1base.pgn = Rep\White\Ch1base.pgn
 		Rep\White\Ch2.pgn = Rep\White\Ch2.pgn
 		Rep\White\Ch2base.pgn = Rep\White\Ch2base.pgn
-		Rep\White\RespCache = Rep\White\RespCache
 		Rep\White\GrobWhite.md = Rep\White\GrobWhite.md
+		Rep\White\RespCache = Rep\White\RespCache
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Black", "Black", "{19A46E3C-DE01-4CA1-BAD2-09573AD87EF0}"
@@ -78,13 +78,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kindle", "Kindle", "{A3D259
 		Rep\Black\Kindle\Welcome.html = Rep\Black\Kindle\Welcome.html
 	EndProjectSection
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Grob", "Grob\Grob.fsproj", "{ED6F5EF3-70F2-4EE0-B626-C790FCD5CED1}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Grob", "Grob\Grob.fsproj", "{ED6F5EF3-70F2-4EE0-B626-C790FCD5CED1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cmd", "Cmd", "{2E78FC7F-570F-4A0F-839F-90D27F5E94CC}"
 	ProjectSection(SolutionItems) = preProject
 		Cmd\grob.bat = Cmd\grob.bat
 		Cmd\grobb.bat = Cmd\grobb.bat
 		Cmd\grobw.bat = Cmd\grobw.bat
+		Cmd\wb23.bat = Cmd\wb23.bat
 	EndProjectSection
 EndProject
 Global

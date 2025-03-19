@@ -16,14 +16,14 @@ module Resp =
         let fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
         let ans = Resp.LiGet fen
         ans.[0] |> should equal "e4"
-        ans.Length|> should equal 12
+        ans.Length|> should equal 4
 
     [<Test>]
     let LiGetFrench() =
         let fen = "rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 3"
         let ans = Resp.LiGet fen
         ans.[0] |> should equal "Nc3"
-        ans.Length|> should equal 12
+        ans.Length|> should equal 4
 
     [<Test>]
     let LiGetNone() =
@@ -43,7 +43,7 @@ module Resp =
         //RespCache.WhiteCache <- ""
         File.Delete testwhite
         ans.[0] |> should equal "e4"
-        ans.Length|> should equal 10
+        ans.Length|> should equal 4
 
     [<Test>]
     let GetWhite() =
@@ -65,7 +65,7 @@ module Resp =
         //RespCache.BlackCache <- ""
         File.Delete testblack
         ans.[0] |> should equal "e4"
-        ans.Length|> should equal 10
+        ans.Length|> should equal 4
 
     [<Test>]
     let GetBlack() =

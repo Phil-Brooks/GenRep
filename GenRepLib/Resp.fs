@@ -5,7 +5,6 @@ open System.Collections.Generic
 open FsChessPgn.OpenExp
 
 module Resp =
-    let mutable lim = 10
     let mutable wdict = new Dictionary<string, string list>()
     let mutable bdict = new Dictionary<string, string list>()
 
@@ -21,8 +20,14 @@ module Resp =
         let rec tryget ct =
             try
                 let res = Results.Load(addr + fen)
+                let tot = res.White + res.Draws + res.Black
                 let mvs = res.Moves
-                let sans = mvs|>Array.map(fun m -> m.San)
+                //only pick > 25%
+                let sans = 
+                    mvs
+                    |>Array.map(fun m -> float(m.White + m.Draws + m.Black)/float(tot),m.San)
+                    |>Array.filter(fun (p,s) -> p > 0.25)
+                    |>Array.map snd
                 sans|>List.ofArray
             with
                 | ex ->
@@ -34,25 +39,17 @@ module Resp =
         tryget 1
     
     let GetWhite (fen:string) =
-        let all =
-            if wdict.ContainsKey fen then wdict[fen]
-            else
-                let ans = LiGet fen
-                wdict.Add(fen,ans)
-                RespCache.SaveWhite(wdict)
-                ans
-        if all.Length>lim then
-            all.[..lim-1]    
-        else all
+        if wdict.ContainsKey fen then wdict[fen]
+        else
+            let ans = LiGet fen
+            wdict.Add(fen,ans)
+            RespCache.SaveWhite(wdict)
+            ans
     
     let GetBlack (fen:string) =
-        let all =
-            if bdict.ContainsKey fen then bdict[fen]
-            else
-                let ans = LiGet fen
-                bdict.Add(fen,ans)
-                RespCache.SaveBlack(bdict)
-                ans
-        if all.Length>lim then
-            all.[..lim-1]    
-        else all
+        if bdict.ContainsKey fen then bdict[fen]
+        else
+            let ans = LiGet fen
+            bdict.Add(fen,ans)
+            RespCache.SaveBlack(bdict)
+            ans

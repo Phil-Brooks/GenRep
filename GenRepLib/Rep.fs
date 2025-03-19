@@ -19,6 +19,7 @@ module Rep =
         pgns
         |>Array.map Path.GetFileNameWithoutExtension
         |>Array.map(fun f -> f.Substring(0,f.Length-4))
+        |>Array.sortBy(fun fn -> int(fn.Substring(2)))
     
     let BlackChapters() =
         let files = Directory.GetFiles(bfol())
@@ -26,6 +27,7 @@ module Rep =
         pgns
         |>Array.map Path.GetFileNameWithoutExtension
         |>Array.map(fun f -> f.Substring(0,f.Length-4))
+        |>Array.sortBy(fun fn -> int(fn.Substring(2)))
 
     let SaveWhite (nm:string) (gm:Game) =
         let wfile = Path.Combine(wfol(),nm + ".pgn")
