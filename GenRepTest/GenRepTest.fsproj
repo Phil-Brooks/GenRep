@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
     <GenerateProgramFile>false</GenerateProgramFile>
@@ -9,6 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="BestCdbDict.fs" />
+    <Compile Include="BestCdbCache.fs" />
+    <Compile Include="BestCdb.fs" />
     <Compile Include="Kindle.fs" />
     <Compile Include="Rep.fs" />
     <Compile Include="Pgn.fs" />
@@ -38,6 +41,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GenRepLib\GenRepLib.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="8.0.100" />
   </ItemGroup>
 
 </Project>

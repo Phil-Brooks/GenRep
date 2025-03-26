@@ -49,8 +49,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Black", "Black", "{19A46E3C
 		Rep\Black\GrobBlack.md = Rep\Black\GrobBlack.md
 	EndProjectSection
 EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FSharp.Markdown", "FSharp.Markdown\FSharp.Markdown.fsproj", "{D695978D-0B78-4790-8CCC-216786D8431D}"
-EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "KindleChessLib", "KindleChessLib\KindleChessLib.fsproj", "{F032D6DE-AB20-4892-A69B-3A2F604E7EC7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kindle", "Kindle", "{41E337E4-E7C5-4D37-9830-B1E77009DE64}"
@@ -114,10 +112,6 @@ Global
 		{B479483D-406A-4AFD-B350-10B12E03FF53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B479483D-406A-4AFD-B350-10B12E03FF53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B479483D-406A-4AFD-B350-10B12E03FF53}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D695978D-0B78-4790-8CCC-216786D8431D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D695978D-0B78-4790-8CCC-216786D8431D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D695978D-0B78-4790-8CCC-216786D8431D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D695978D-0B78-4790-8CCC-216786D8431D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F032D6DE-AB20-4892-A69B-3A2F604E7EC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F032D6DE-AB20-4892-A69B-3A2F604E7EC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F032D6DE-AB20-4892-A69B-3A2F604E7EC7}.Release|Any CPU.ActiveCfg = Release|Any CPU

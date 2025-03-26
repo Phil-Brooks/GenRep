@@ -3,7 +3,7 @@ namespace KindleChess
 open System.IO
 open DotLiquid
 open Microsoft.FSharp.Reflection
-open FSharp.Markdown
+open FSharp.Formatting.Markdown
 
 module Chap =
     
@@ -172,12 +172,12 @@ module Chap =
             + @""" src=""board/" + png 
             + @""" width=""352"" height=""352"" border=""2"" />" + "</p>"
         let dod bd dct id (pd : string) =
-            if not (pd.Contains("[#]")) then pd|>Markdown.Parse|>Markdown.WriteHtml,dct
+            if not (pd.Contains("[#]")) then pd|>Markdown.Parse|>Markdown.ToHtml,dct
             else 
                 let pos = pd.IndexOf("[#]")
                 let npd =
-                    (pd.Substring(0, pos)|>Markdown.Parse|>Markdown.WriteHtml) + (link bd dct id) 
-                    + (pd.Substring(pos + 3)|>Markdown.Parse|>Markdown.WriteHtml)
+                    (pd.Substring(0, pos)|>Markdown.Parse|>Markdown.ToHtml) + (link bd dct id) 
+                    + (pd.Substring(pos + 3)|>Markdown.Parse|>Markdown.ToHtml)
                 npd,(dct+1)
          
         let ravfilt mte =

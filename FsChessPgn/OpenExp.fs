@@ -4,7 +4,7 @@ open FsChess
 open System.IO
 open FSharp.Data
 
-//getting data form Lichess Opening Explorer
+//getting data from Lichess Opening Explorer
 module OpenExp =
     [<Literal>]
     let sample = "https://explorer.lichess.ovh/masters"

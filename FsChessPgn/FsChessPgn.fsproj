@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -125,6 +125,7 @@
     <Compile Include="Stockfish.fs" />
     <Compile Include="Leela.fs" />
     <Compile Include="OpenExp.fs" />
+    <Compile Include="CDB.fs" />
     <Compile Include="Best.fs" />
     <Compile Include="FsChess.fs" />
     <Compile Include="FsChess.Pgn.fs" />
@@ -136,7 +137,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="FSharp.Core" Version="9.0.201" />
+    <PackageReference Update="FSharp.Core" Version="8.0.100" />
   </ItemGroup>
 
 </Project>

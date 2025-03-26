@@ -3,7 +3,7 @@ namespace KindleChess
 open System.IO
 open DotLiquid
 open Microsoft.FSharp.Reflection
-open FSharp.Markdown
+open FSharp.Formatting.Markdown
 
 module Book =
     
@@ -57,7 +57,7 @@ module Book =
                 let welfl = Path.Combine(pfol, title + ".md")
                 File.ReadAllText(welfl)
                 |> Markdown.Parse
-                |> Markdown.WriteHtml
+                |> Markdown.ToHtml
             
             let ostr = t.Render(Hash.FromDictionary(dict [ "wel", box wel ]))
             let ouf = Path.Combine(ofol, "Welcome.html")
