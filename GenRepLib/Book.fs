@@ -62,6 +62,7 @@ module Book =
     let AddResps (gm:Game) =
         //Just go to end of each var and add best move using best cache 
         //and then list of moves using resp cache with diags
+        //CHANGE - if not in lichess then no point including as nobody plays it! 
         let rec addresps hmn (camv:aMove option) (imtel:MoveTextEntry list) (omtel:MoveTextEntry list) =
            if imtel.IsEmpty then 
                 //this is end of a RAV so can add here
@@ -88,7 +89,9 @@ module Book =
                 let nmte = HalfMoveEntry(None,false,pmv,Some(amv))
                 let ce = CommentEntry("[#]")
                 if resps.Length=1 then
-                    (nmte::nomtel)|>List.rev
+                    //(nmte::nomtel)|>List.rev
+                    //CHANGE
+                    omtel|>List.rev
                 else
                     let ravs = resps.Tail|>List.map(getrav nbrd)|>List.rev
                     (ravs@[ce;nmte]@nomtel)|>List.rev
@@ -119,7 +122,9 @@ module Book =
                     let nmte = HalfMoveEntry(None,false,pmv,Some(amv))
                     let ce =CommentEntry("[#]")
                     if resps.Length=1 then
-                        (mte::nmte::nomtel)|>List.rev
+                        //(mte::nmte::nomtel)|>List.rev
+                        //CHANGE
+                        mte::omtel|>List.rev
                     else
                         let ravs = resps.Tail|>List.map(getrav nbrd)|>List.rev
                         (mte::(ravs@[ce;nmte]@nomtel))|>List.rev

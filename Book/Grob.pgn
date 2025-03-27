@@ -1,0 +1,44 @@
+[Event "?"]
+[Site "?"]
+[Date "2021.12.03"]
+[Round "?"]
+[White "d5"]
+[Black "?"]
+[Result "*"]
+[WhiteElo "-"]
+[BlackElo "-"]
+[ECO "A00"]
+[EventDate "2021.??.??"]
+[PlyCount "4"]
+[SourceVersionDate "2021.12.03"]
+
+1. g4 d5 2. Bg2 c6 3. h3 h5 {[#]} 
+ (3... e5 {[#]} 4. d4 $15 {[#]}) 
+4. g5 e5 {[#]} 
+ (4... Bf5 {[#]} 5. d3 $10 {[#]}) 
+5. d4 e4 {[#]} 
+ (5... exd4 {[#]} 6. Qxd4 $10 {[#]}) 
+ (5... Nd7 {[#]} 6. e4 $10 {[#]}) 
+6. c4 Bd6 {[#]} 
+ (6... dxc4 {[#]} 7. Nc3 $10 {[#]}) 
+ (6... Ne7 {[#]} 7. Nc3 Ng6 {[#]} 
+   (7... Na6 {[#]} 8. cxd5 $10 {[#]}) 
+  8. cxd5 $10 {[#]}) 
+7. Nc3 $15 {[#]} *
+
+[Event "?"]
+[Site "?"]
+[Date "2021.12.03"]
+[Round "?"]
+[White "e5"]
+[Black "?"]
+[Result "*"]
+[WhiteElo "-"]
+[BlackElo "-"]
+[ECO "A00"]
+[EventDate "2021.??.??"]
+[PlyCount "4"]
+[SourceVersionDate "2021.12.03"]
+
+1. g4 e5 2. Bg2 h5 3. gxh5 $15 {[#]} *
+
