@@ -31,13 +31,13 @@
     </navPoint>
     <navPoint class="chapter" id="chapter_1" playOrder="3">
       <navLabel>
-        <text>Chapter 1: </text>
+        <text>Chapter 1: d5</text>
       </navLabel>
       <content src="CH1.html"/>
     </navPoint>
     <navPoint class="chapter" id="chapter_2" playOrder="4">
       <navLabel>
-        <text>Chapter 2: </text>
+        <text>Chapter 2: e5</text>
       </navLabel>
       <content src="CH2.html"/>
     </navPoint>

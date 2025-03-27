@@ -6,6 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="kindlegen.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Compile Include="Types.fs" />
     <Compile Include="Pgn.fs" />
     <Compile Include="BestCache.fs" />
@@ -15,6 +18,10 @@
     <Compile Include="Rep.fs" />
     <Compile Include="Book.fs" />
     <Compile Include="Kindle.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fli" Version="1.111.10" />
   </ItemGroup>
 
   <ItemGroup>
