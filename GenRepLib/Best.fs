@@ -7,6 +7,7 @@ module Best =
     let mutable depth = 5
     let mutable wdict = new Dictionary<string, BestEntry>()
     let mutable bdict = new Dictionary<string, BestEntry>()
+    let mutable bkdict = new Dictionary<string, BestEntry>()
 
     let SetupWhite(wfil) = 
         BestCache.wcache <- wfil
@@ -15,6 +16,10 @@ module Best =
     let SetupBlack(bfil) = 
         BestCache.bcache <- bfil
         bdict <- BestCache.LoadBlack()
+
+    let SetupBook(bkfil) = 
+        BestCache.bkcache <- bkfil
+        bkdict <- BestCache.LoadBook()
 
     let Calc (fenstr:string) =
         //utility to get san
@@ -66,4 +71,13 @@ module Best =
             let ans = Calc fen
             dict.Add(fen,ans)
             BestCache.SaveBlack(dict)
+            ans
+
+    let GetBook (fen:string) =
+        let dict = BestCache.LoadBook()
+        if dict.ContainsKey fen then dict[fen]
+        else
+            let ans = Calc fen
+            dict.Add(fen,ans)
+            BestCache.SaveBook(dict)
             ans

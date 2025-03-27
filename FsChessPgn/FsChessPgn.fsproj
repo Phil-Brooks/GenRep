@@ -125,7 +125,6 @@
     <Compile Include="Stockfish.fs" />
     <Compile Include="Leela.fs" />
     <Compile Include="OpenExp.fs" />
-    <Compile Include="CDB.fs" />
     <Compile Include="Best.fs" />
     <Compile Include="FsChess.fs" />
     <Compile Include="FsChess.Pgn.fs" />

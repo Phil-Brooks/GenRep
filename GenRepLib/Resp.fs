@@ -7,6 +7,7 @@ open FsChessPgn.OpenExp
 module Resp =
     let mutable wdict = new Dictionary<string, string list>()
     let mutable bdict = new Dictionary<string, string list>()
+    let mutable bkdict = new Dictionary<string, string list>()
 
     let SetupWhite(wfil) = 
         RespCache.wcache <- wfil
@@ -15,6 +16,10 @@ module Resp =
     let SetupBlack(bfil) = 
         RespCache.bcache <- bfil
         bdict <- RespCache.LoadBlack()
+
+    let SetupBook(bkfil) = 
+        RespCache.bkcache <- bkfil
+        bkdict <- RespCache.LoadBook()
 
     let LiGet (fen:string) =
         let rec tryget ct =
@@ -52,4 +57,12 @@ module Resp =
             let ans = LiGet fen
             bdict.Add(fen,ans)
             RespCache.SaveBlack(bdict)
+            ans
+
+    let GetBook (fen:string) =
+        if bkdict.ContainsKey fen then bkdict[fen]
+        else
+            let ans = LiGet fen
+            bkdict.Add(fen,ans)
+            RespCache.SaveBook(bkdict)
             ans

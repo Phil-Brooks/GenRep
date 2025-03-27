@@ -86,6 +86,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cmd", "Cmd", "{2E78FC7F-570
 		Cmd\wb23.bat = Cmd\wb23.bat
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Book", "Book", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		Book\Grob.md = Book\Grob.md
+		Book\Grobbase.pgn = Book\Grobbase.pgn
+	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GrobBook", "GrobBook\GrobBook.fsproj", "{A0037DB8-9D00-BB02-F1F8-0769557BED97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -120,6 +128,10 @@ Global
 		{ED6F5EF3-70F2-4EE0-B626-C790FCD5CED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED6F5EF3-70F2-4EE0-B626-C790FCD5CED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED6F5EF3-70F2-4EE0-B626-C790FCD5CED1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0037DB8-9D00-BB02-F1F8-0769557BED97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0037DB8-9D00-BB02-F1F8-0769557BED97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0037DB8-9D00-BB02-F1F8-0769557BED97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0037DB8-9D00-BB02-F1F8-0769557BED97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

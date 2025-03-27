@@ -9,9 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="BestCdbDict.fs" />
-    <Compile Include="BestCdbCache.fs" />
-    <Compile Include="BestCdb.fs" />
     <Compile Include="Kindle.fs" />
     <Compile Include="Rep.fs" />
     <Compile Include="Pgn.fs" />

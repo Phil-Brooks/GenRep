@@ -9,12 +9,11 @@
     <Compile Include="Types.fs" />
     <Compile Include="Pgn.fs" />
     <Compile Include="BestCache.fs" />
-    <Compile Include="BestCdbCache.fs" />
     <Compile Include="RespCache.fs" />
     <Compile Include="Best.fs" />
-    <Compile Include="BestCdb.fs" />
     <Compile Include="Resp.fs" />
     <Compile Include="Rep.fs" />
+    <Compile Include="Book.fs" />
     <Compile Include="Kindle.fs" />
   </ItemGroup>
 

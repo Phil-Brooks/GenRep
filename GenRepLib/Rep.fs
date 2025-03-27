@@ -7,6 +7,7 @@ module Rep =
     let mutable fol = ""
     let wfol() = Path.Combine(fol,"White")
     let bfol() = Path.Combine(fol,"Black")
+
     let setcache() = 
         Best.SetupWhite(Path.Combine(wfol(),"BestCache"))
         Best.SetupBlack(Path.Combine(bfol(),"BestCache"))

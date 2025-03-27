@@ -217,9 +217,14 @@ module IO =
     ///Get Game from a file
     let ReadFromFile = FsChessPgn.RegParse.ReadGame
 
-    ///Write a Game to a file
-    let WriteFile = FsChessPgn.PgnWriter.WriteGame
+    ///Get Game List from a file
+    let ReadListFromFile = FsChessPgn.RegParse.ReadFromFile
 
+    ///Write a Game to a file
+    let WriteGame = FsChessPgn.PgnWriter.WriteGame
+
+    ///Write a Game to a file
+    let WriteFile = FsChessPgn.PgnWriter.WriteFile
 
 module Pretty =
 
