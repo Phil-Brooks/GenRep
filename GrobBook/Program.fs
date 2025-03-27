@@ -1,4 +1,5 @@
 ﻿open GenRepLib
+open System.IO
 
 [<EntryPoint>]
 let main argv =
@@ -33,6 +34,17 @@ let main argv =
         gm
     let gms = bgms|>List.map expand  
     Book.SaveBook gms
+    (*
+    To create a kindle book you need to:
+    1. Create a markdown file with title of book for White and Black
+    2. Specify the templates and images folders
+    3. Run code to create OPF files and html
+    4. Use either Kindle Previewer or kindlegen to create mobi files
+    
+    *)
+    Kindle.tfol <- @"D:\Github\GenRep\Templates"
+    Kindle.ifol <- @"D:\Github\GenRep\Images"
+    Book.bkfil|>Path.GetFileNameWithoutExtension|>Kindle.BookOpf
 
 
 

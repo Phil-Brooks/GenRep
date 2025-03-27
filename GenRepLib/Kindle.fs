@@ -26,3 +26,10 @@ module Kindle =
             |>Array.map(fun ch -> Path.Combine(pfol,ch + ".pgn"))
         //TODO do something with
         Book.genh title fls pfol tfol ifol ofol
+
+    let BookOpf(title) =
+        let pfol = Book.bkfol
+        let ofol = Path.Combine(pfol,"Kindle")
+        let fl = Path.Combine(pfol,title + ".pgn")
+        //TODO do something with
+        Book.genhb title fl pfol tfol ifol ofol

@@ -82,19 +82,20 @@ module Book =
                 let nbrd = amv.PostBrd
                 let fen = FsChessPgn.FEN.FromBd nbrd|>FsChessPgn.FEN.ToStr
                 let iresps = Resp.GetBook fen
-                let tresps = iresps|>List.filter(fun r -> r<>bm.Resp)
-                let resps = bm.Resp::tresps
-                let pmv = FsChessPgn.pMove.Parse resps.Head
-                let amv = FsChessPgn.pMove.ToaMove nbrd (hmn/2) pmv
-                let nmte = HalfMoveEntry(None,false,pmv,Some(amv))
-                let ce = CommentEntry("[#]")
-                if resps.Length=1 then
-                    //(nmte::nomtel)|>List.rev
-                    //CHANGE
-                    omtel|>List.rev
+                //CHANGE
+                if iresps.Length=0 then omtel|>List.rev
                 else
-                    let ravs = resps.Tail|>List.map(getrav nbrd)|>List.rev
-                    (ravs@[ce;nmte]@nomtel)|>List.rev
+                    let tresps = iresps|>List.filter(fun r -> r<>bm.Resp)
+                    let resps = bm.Resp::tresps
+                    let pmv = FsChessPgn.pMove.Parse resps.Head
+                    let amv = FsChessPgn.pMove.ToaMove nbrd (hmn/2) pmv
+                    let nmte = HalfMoveEntry(None,false,pmv,Some(amv))
+                    let ce = CommentEntry("[#]")
+                    if resps.Length=1 then
+                        (nmte::nomtel)|>List.rev
+                    else
+                        let ravs = resps.Tail|>List.map(getrav nbrd)|>List.rev
+                        (ravs@[ce;nmte]@nomtel)|>List.rev
             else
                 let mte = imtel.Head
                 match mte with
@@ -115,19 +116,20 @@ module Book =
                     let nbrd = amv.PostBrd
                     let fen = FsChessPgn.FEN.FromBd nbrd|>FsChessPgn.FEN.ToStr
                     let iresps = Resp.GetBook fen
-                    let tresps = iresps|>List.filter(fun r -> r<>bm.Resp)
-                    let resps = bm.Resp::tresps
-                    let pmv = FsChessPgn.pMove.Parse resps.Head
-                    let amv = FsChessPgn.pMove.ToaMove nbrd (hmn/2) pmv
-                    let nmte = HalfMoveEntry(None,false,pmv,Some(amv))
-                    let ce =CommentEntry("[#]")
-                    if resps.Length=1 then
-                        //(mte::nmte::nomtel)|>List.rev
-                        //CHANGE
-                        mte::omtel|>List.rev
+                    //CHANGE
+                    if iresps.Length=0 then mte::omtel|>List.rev
                     else
-                        let ravs = resps.Tail|>List.map(getrav nbrd)|>List.rev
-                        (mte::(ravs@[ce;nmte]@nomtel))|>List.rev
+                        let tresps = iresps|>List.filter(fun r -> r<>bm.Resp)
+                        let resps = bm.Resp::tresps
+                        let pmv = FsChessPgn.pMove.Parse resps.Head
+                        let amv = FsChessPgn.pMove.ToaMove nbrd (hmn/2) pmv
+                        let nmte = HalfMoveEntry(None,false,pmv,Some(amv))
+                        let ce =CommentEntry("[#]")
+                        if resps.Length=1 then
+                            (mte::nmte::nomtel)|>List.rev
+                        else
+                            let ravs = resps.Tail|>List.map(getrav nbrd)|>List.rev
+                            (mte::(ravs@[ce;nmte]@nomtel))|>List.rev
                 |RAVEntry(rml) -> 
                     let nrml = addresps (hmn-1) camv rml []
                     let nrav = RAVEntry(nrml)
