@@ -652,3 +652,62 @@ module Game =
         let initbd = if gm.BoardSetup.IsSome then gm.BoardSetup.Value else Board.Start
         let fnd,mvstr = getbd initbd (gm.MoveText|>GetMoves)
         if fnd then Some(indx,gm,mvstr) else None
+
+    let Var2Comm(gm:Game) =
+        let rec var2comm (pmvl:MoveTextEntry list) opmvl =
+            if pmvl|>List.isEmpty then opmvl|>List.rev
+            else
+                let mte = pmvl.Head
+                match mte with
+                |RAVEntry(mtel) -> 
+                    let hasrav() =
+                        let ravs = mtel|>List.filter(fun mte -> mte.IsRAVEntry)
+                        ravs.Length>0
+                    if mtel.Length>6 || hasrav() then
+                        let nmtel = var2comm mtel []
+                        let nmte = RAVEntry(nmtel)
+                        var2comm pmvl.Tail (nmte::opmvl)
+                    else
+                        let replnag (s:string) =
+                            let nagstr = s.Substring(s.LastIndexOf('$'))
+                            let nag = nagstr.Substring(1)|>int|>Ng
+                            let newstr = "is " + (nag|>NagUtil.DescFull) + ". "
+                            s.Replace(nagstr, newstr)
+                        let mvtxt = 
+                            mtel
+                            |>List.filter(fun m -> not m.IsCommentEntry)
+                            |>PgnWrite.MoveTextStr
+                            |>replnag
+                        let nmte = CommentEntry(" if " + mvtxt)
+                        //want to remove preceding diagram
+                        let nopmvl =
+                             if opmvl.Head.IsCommentEntry then opmvl.Tail else opmvl
+                        var2comm pmvl.Tail (nmte::nopmvl)
+                |_ -> var2comm pmvl.Tail (mte::opmvl)
+        
+        let nmt = var2comm gm.MoveText []
+        {gm with MoveText=nmt}
+
+    let AddDiag(gm:Game) =
+        let rec adddiag (pmvl:MoveTextEntry list) opmvl =
+            if pmvl|>List.isEmpty then opmvl|>List.rev
+            else
+                let mte = pmvl.Head
+                match mte with
+                |RAVEntry(mtel) -> 
+                    let hasrav() =
+                        let ravs = mtel|>List.filter(fun mte -> mte.IsRAVEntry)
+                        ravs.Length>0
+                    if mtel.Length<12 || hasrav() then
+                        let nmtel = adddiag mtel []
+                        let nmte = RAVEntry(nmtel)
+                        adddiag pmvl.Tail (nmte::opmvl)
+                    else
+                        let pos = mtel.Length/2
+                        let nmtel = mtel[0..pos]@[CommentEntry("[#]")]@mtel[pos+1..mtel.Length-1]
+                        let nmte = RAVEntry(nmtel)
+                        adddiag pmvl.Tail (nmte::opmvl)
+                |_ -> adddiag pmvl.Tail (mte::opmvl)
+        
+        let nmt = adddiag gm.MoveText []
+        {gm with MoveText=nmt}

@@ -61,3 +61,20 @@ module NagUtil =
         | NAG.Wdecisive -> "W dec adv"
         | NAG.Bdecisive -> "B dec adv"
         |_ -> "None"
+
+    let DescFull(nag:NAG) =
+        match nag with
+        | NAG.Good -> "good"
+        | NAG.Poor -> "poor"
+        | NAG.VeryGood -> "very good"
+        | NAG.VeryPoor -> "very poor"
+        | NAG.Speculative -> "speculative"
+        | NAG.Questionable -> "questionable"
+        | NAG.Even -> "equal"
+        | NAG.Wslight -> "a slight advantage to white" 
+        | NAG.Bslight -> "a slight advantage to black"
+        | NAG.Wmoderate -> "a moderate advantage to white"
+        | NAG.Bmoderate -> "a moderate advantage to black"
+        | NAG.Wdecisive -> "a decisive advantage to white"
+        | NAG.Bdecisive -> "a decisive advantage to black"
+        |_ -> "None"

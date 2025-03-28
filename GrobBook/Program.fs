@@ -35,6 +35,18 @@ let main argv =
     let gms = bgms|>List.map expand  
     Book.SaveBook gms
     (*
+    Load games
+    COSMETIC
+    1. Convert short variations to comments
+    2. Add extra diagram for long variations
+    *)
+    let ngms =
+        gms
+        |>List.map FsChessPgn.Game.Var2Comm
+        |>List.map FsChessPgn.Game.AddDiag
+
+    Book.SaveBook ngms
+    (*
     To create a kindle book you need to:
     1. Create a markdown file with title of book for White and Black
     2. Specify the templates and images folders
